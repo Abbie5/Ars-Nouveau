@@ -154,6 +154,12 @@ repositories {
         }
     }
     maven {
+        url "https://maven.terraformersmc.com"
+        content {
+            includeGroup "dev.emi"
+        }
+    }
+    maven {
         name 'LDTTeam - Modding'
         url 'https://ldtteam.jfrog.io/ldtteam/modding/'
     }
@@ -184,6 +190,9 @@ dependencies {
     // at runtime, use the full JEI
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-common:${jei_version}")
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
+
+    compileOnly fg.deobf("dev.emi:emi-forge:${emi_version}+${mc_version}:api")
+    runtimeOnly fg.deobf("dev.emi:emi-forge:${emi_version}+${mc_version}")
 
     implementation fg.deobf("top.theillusivec4.curios:curios-forge:${mc_version}-${curios_version}")
     shade fg.deobf("software.bernie.geckolib:geckolib-forge-1.19:${gecko_version}")
